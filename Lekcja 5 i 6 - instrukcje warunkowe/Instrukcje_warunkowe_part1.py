@@ -97,13 +97,13 @@
 # - jeden zlożony warunek
 # - wykorzystujemy operatory relacyjne i logiczne (and)
 
-wiek = int(input("Podaj swój wiek: "))
-wzrost = int(input("Podaj wzrost: "))
+# wiek = int(input("Podaj swój wiek: "))
+# wzrost = int(input("Podaj wzrost: "))
 
-if wiek >= 12 and 130 <= wzrost <= 195:
-    print("Możesz zjechać na rollercoasterze!")
-else:
-    print("Niestety nie spełniasz warunków bezpieczeństwa")
+# if wiek >= 12 and 130 <= wzrost <= 195:
+#     print("Możesz zjechać na rollercoasterze!")
+# else:
+#     print("Niestety nie spełniasz warunków bezpieczeństwa")
    
 
 
@@ -137,14 +137,14 @@ else:
 #Jaka liczba całkowita została wprowadzona?
 #Dodatnia, ujemne, a może 0?
 
-liczba = int(input("Podaj liczbę: "))
+# liczba = int(input("Podaj liczbę: "))
 
-if liczba == 0:
-    print("Twoja liczb wynosi zero.")
-elif liczba > 0:
-    print("Twoj liczba jest dodatnia.")
-else:
-    print("Twoja liczba jest ujemna.")
+# if liczba == 0:
+#     print("Twoja liczb wynosi zero.")
+# elif liczba > 0:
+#     print("Twoj liczba jest dodatnia.")
+# else:
+#     print("Twoja liczba jest ujemna.")
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -179,25 +179,38 @@ print("dzielenie - '/'")
 print("odejmowanie - '-'")
 print("potęgowanie - '**'")
 
-znak = input("Wybierz działanie")
+znak = input("Wybierz działanie: ")
 
-b = float(input("Podaj pierwszą liczbę: "))
+b = float(input("Podaj drugą liczbę: "))
 
 
+if znak == '+':
+    print(f"{a} {znak} {b} = {a+b}")
+elif znak == '*':
+    print(f"{a} {znak} {b} = {a*b}")
+elif znak == '/':
+    print(f"{a} {znak} {b} = {a/b}")
+elif znak == '-':
+    print(f"{a} {znak} {b} = {a-b}")
+elif znak == '**':
+    print(f"{a} {znak} {b} = {a**b}")
+else:
+    print("Podano niepoprawny znak.")
+    pass
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # MATCH CASE
-# znak = input("Podaj numer: ")
+znak = input("Podaj numer: ")
 
-# match znak:
-#     case '1':
-#         print('Wybrano numer 1')
-#     case '2':
-#         print('Wybrano numer 2')
-#     case _:
-#         print('Niepoprawny numer')
+match znak:
+    case '+':
+        print('Wybrano numer 1')
+    case '-':
+        print('Wybrano numer 2')
+    case _:
+        print('Niepoprawny numer')
 
 # Zadanie 4 "Prosty Kalkulator" - ale lepsze
 
