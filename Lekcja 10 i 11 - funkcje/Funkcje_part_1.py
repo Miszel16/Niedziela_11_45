@@ -60,14 +60,14 @@
 # print("Osoba Tomasz Lewandowski pracuje w naszej firmie od 6 lat")
 
 # z funkcją
-# def wyswietl_raport(imie, nazwisko, lata):
-#     print(f"Osoba {imie} {nazwisko} JEST W NASZYM ZESPOLE od {lata} lat")
+def wyswietl_raport(imie, nazwisko, lata):
+    print(f"Osoba {imie} {nazwisko} JEST W NASZYM ZESPOLE od {lata} lat")
 
-# wyswietl_raport("Anna", "Kowalska", 3)
-# wyswietl_raport("Jan", "Nowak", 5)
-# wyswietl_raport("Piotr", "Zieliński", 2)
-# wyswietl_raport("Maria", "Wiśniewska", 4)
-# wyswietl_raport("Tomasz", "Lewandowski", 6)
+wyswietl_raport("Anna", "Kowalska", 3)
+wyswietl_raport("Jan", "Nowak", 5)
+wyswietl_raport("Piotr", "Zieliński", 2)
+wyswietl_raport("Maria", "Wiśniewska", 4)
+wyswietl_raport("Tomasz", "Lewandowski", 6)
 
 # ZALETY:
 # - zmiana komunikatu wymaga zmiany tylko w jednym miejscu,
@@ -224,20 +224,20 @@ pole_prostokata("Alijca", 5, b = 8)
 # DWA RODZAJE FUNCKJI - MOŻE ZWRACAĆ LUB NIE
 
 # Funkcja obliczająca pole sześciokąta na podstawie długości boku:
-# from math import sqrt
+from math import sqrt
 
-# def pole_szesciokota_foremnego_z_return(a):
-#     return 3 * sqrt(3) * a ** 2 / 2
+def pole_szesciokota_foremnego_z_return(a):
+    return 3 * sqrt(3) * a ** 2 / 2
 
-# pole = pole_szesciokota_foremnego_z_return(2)
-# print(pole)
+pole = pole_szesciokota_foremnego_z_return(2)
+print(pole)
 
 # # #---------------------------------------
 
-# def pole_szesciokota_foremnego_bez_return(a):
-#     print(3 * sqrt(3) * a ** 2 / 2)
+def pole_szesciokota_foremnego_bez_return(a):
+    print(3 * sqrt(3) * a ** 2 / 2)
 
-# pole_szesciokota_foremnego_bez_return(2)
+pole_szesciokota_foremnego_bez_return(2)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
