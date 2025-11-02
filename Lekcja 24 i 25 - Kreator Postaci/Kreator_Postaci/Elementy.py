@@ -9,7 +9,7 @@ class Obraz():
 class Element():
     def __init__(self, typ):
         self.wybrany = 0
-        self.lista_obrazow = []
+        self.lista_obrazow = [] # 0,1,2
 
         for i in range(1, 4): # 1 2 3
             sciezka = f"images/{typ}{i}.png" # images/body{i}.png
@@ -23,13 +23,29 @@ class Element():
         if self.wybrany > len(self.lista_obrazow)-1:
             self.wybrany = 0
 
+    def wybranyObraz(self):
+        return self.lista_obrazow[self.wybrany].obraz
+
+    
+
 
 #2. Klasy pochodne
 class NakrycieGlowy(Element):
     def __init__(self):
         super().__init__("head")
 
-# Ubranie
-# Oczy
-# Bron
+
+class Ubrania(Element):
+    def __init__(self):
+        super().__init__("body")
+
+
+class Oczy(Element):
+    def __init__(self):
+        super().__init__("eye")
+
+
+class Bron(Element):
+    def __init__(self):
+        super().__init__("weapon")
 
