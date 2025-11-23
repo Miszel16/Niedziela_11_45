@@ -1,7 +1,9 @@
 # GRAFIKI: https://drive.google.com/drive/folders/1qyu5_Kfb7YEJkNOJWXns0lrbWvz9Ohmw
 
-# ETAP II:
-# - głowa węża oraz sterowanie nią
+# ETAP III:
+# - zjadanie jabłka
+# - nowe segmenty węża
+# - wyniki na konie gry
 
 import pygame
 import random
@@ -56,25 +58,31 @@ while status_gry:
             # a s d
             if zdarzenie.key == pygame.K_w:
                 waz.zmien_kierunek(Kierunek.GORA)
-
             if zdarzenie.key == pygame.K_a:
                 waz.zmien_kierunek(Kierunek.LEWO)
-
             if zdarzenie.key == pygame.K_s:
                 waz.zmien_kierunek(Kierunek.DOL)
-
             if zdarzenie.key == pygame.K_d:
                 waz.zmien_kierunek(Kierunek.PRAWO)
-
         elif zdarzenie.type == PORUSZ_WEZEM:
             waz.aktualizuj()
         # ---------------------------------------------------
         pass
 
+    #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    kolizja_z_jablkiem = pygame.sprite.spritecollideany(waz, jablka_lista)
+    if kolizja_z_jablkiem != None:
+        kolizja_z_jablkiem.kill()
+        waz.jedz_jablko()
+        jablko = Jablko()
+        jablka_lista.add(jablko)
+    #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
     ekran.blit(tlo, (0,0))
-    
     ekran.blit(waz.obraz, waz.rect)
-    # TESTY
+
+    waz.rysuj_segmenty(ekran) #!!!!!!!!!!!!!!!!!!!
+
 
     for jablko in jablka_lista:
         ekran.blit(jablko.obraz, jablko.rect)
