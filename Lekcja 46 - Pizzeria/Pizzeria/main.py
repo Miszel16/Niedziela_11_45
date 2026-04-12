@@ -2,9 +2,37 @@
 # pizzeria-venv\Scripts\Activate.ps1
 # python -m pip install python-dotenv
 # python -m pip list
-
 import json
 import pprint
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+import os
+import dotenv
+
+
+def send_email(message_text):
+    dotenv.load_dotenv()
+
+    subject = "Pizzeria u Vita - potwierdzenie zamowienia"
+
+    sender_email = os.getenv('sender_email')
+    recipient_email = os.getenv('recipient_email')
+    sender_password = os.getenv('sender_password')
+
+    message = MIMEMultipart()
+    message['Subject'] = subject
+    message['From'] = sender_email
+    message['To'] = recipient_email
+    body_part = MIMEText(message_text)
+    message.attach(body_part)
+
+    with smtplib.SMTP("smtp.wp.pl", 587, timeout=20) as server:
+        server.starttls()
+        server.login(sender_email, sender_password)
+        server.sendmail(sender_email, recipient_email, message.as_string())
+
+
 
 with open('menu.json', 'r', encoding='utf-8') as file:
     menu = json.load(file)
@@ -71,6 +99,7 @@ def send_order():
         total_cost += cost
     text += f"Łączny koszt: {total_cost}"
     print(text)
+    send_email(text) # !!!
     print("Zamówienie zostało złożone")
     input("Wcisńij enter, aby kontynuować")
 
